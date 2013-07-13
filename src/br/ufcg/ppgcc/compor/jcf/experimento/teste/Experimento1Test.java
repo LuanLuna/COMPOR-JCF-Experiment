@@ -14,6 +14,7 @@ import br.ufcg.ppgcc.compor.jcf.experimento.fachada.FachadaExperimento;
 import br.ufcg.ppgcc.compor.jcf.experimento.fachada.FontePagadora;
 import br.ufcg.ppgcc.compor.jcf.experimento.fachada.Resultado;
 import br.ufcg.ppgcc.compor.jcf.experimento.fachada.Titular;
+import br.ufcg.ppgcc.compor.jcf.experimento.impl.DeclaracaoDoImpostoDeRenda;
 
 public class Experimento1Test {
 
@@ -22,23 +23,23 @@ public class Experimento1Test {
 	@Before
 	public void iniciar() {
 		//Coloque sua Fachada aqui.
-		fachada = null;
+		fachada = new DeclaracaoDoImpostoDeRenda();
 	}
 
 	@Test
-	public void novoTitular() {
+	public void novoTitular() {//ok
 		Titular titular = criarTitularMinimo();
 		verificaCriacaoTitular(titular);
 	}
 
 	@Test
-	public void titularCompleta() {
+	public void titularCompleta() {//ok
 		Titular titular = criarTitularPadrao();
 		verificaCriacaoTitular(titular);
 	}
 
 	@Test
-	public void doisTitulares() {
+	public void doisTitulares() {//ok
 		Titular titular1 = criarTitularPadrao();
 		fachada.criarNovoTitular(titular1);
 		Titular titular2 = criarTitularMinimo();
@@ -51,7 +52,7 @@ public class Experimento1Test {
 	}
 
 	@Test
-	public void novaFontePagadora() {
+	public void novaFontePagadora() {//ok
 		FontePagadora fonte = criarFontePagadoraPadrao1();
 		Titular titularSalvo = salvarTitularComUmaFonte(fonte);
 
@@ -61,7 +62,7 @@ public class Experimento1Test {
 	}
 
 	@Test
-	public void duasFontesPagadorasEmUmTitular() {
+	public void duasFontesPagadorasEmUmTitular() {//ok
 		Titular titular = criarTitularPadrao();
 		fachada.criarNovoTitular(titular);
 		FontePagadora fonte1 = criarFontePagadoraPadrao1();
@@ -76,7 +77,7 @@ public class Experimento1Test {
 	}
 
 	@Test
-	public void duasFontesPagadorasUmaEmCadaTitular() {
+	public void duasFontesPagadorasUmaEmCadaTitular() {//ok
 		Titular titular1 = criarTitularPadrao();
 		fachada.criarNovoTitular(titular1);
 		FontePagadora fonte1 = criarFontePagadoraPadrao1();
